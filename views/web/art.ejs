@@ -1,0 +1,52 @@
+<%- include('../includes/header.ejs') %>
+
+<%- include('../includes/nav.ejs') %>
+
+<div class="container">
+    <% for (let arti of article) { %>
+    <div class="cs-blog-detail">
+        <div class="cs-main-post">
+            <h4><%= arti.title %></h4>
+            <figure><img src="<%= arti.imgurl %>"></figure>
+        </div>
+        <div class="cs-post-title">
+            <div class="cs-author">
+               
+                <div class="cs-text">
+                    <a href="#"><%= arti.author %></a>
+                </div>
+            </div>
+            <div class="post-option">
+               
+                <span class="post-date"><i class="cs-color icon-calendar6"></i><%= arti.date %></a></span>
+            </div>
+        </div>
+        <div class="cs-post-option-panel">
+            <div class="rich-editor-text">
+                <script type="application/javascript" src= "/tinymce/tinymce.min.js"></script>
+                <script type="application/javascript" src= "/javascript/my-tinymce-config.js"></script>
+                <textarea id="des1" name="des1" class="des1">
+                    <%= arti.des %>
+                </textarea>
+                
+                
+               
+            </div>
+        </div>
+        <div class="cs-tags">
+            <div class="tags">
+                <span>Tags</span>
+                <ul>
+               
+                    <li><a rel="tag" href="/<%= arti.category %>"><%= arti.category %></a></li>
+                   
+                </ul>
+            </div>
+          
+        </div>
+       
+    </div>
+    <% } %>
+    </div>
+
+    <%- include('../includes/footer.ejs')%>

@@ -1,0 +1,29 @@
+<%- include('../includes/header.ejs') %>
+<%- include('../includes/nav.ejs') %>
+
+<script type="application/javascript" src= "/tinymce/tinymce.min.js"></script>
+<script type="application/javascript" src= "/javascript/my-tinymce-config.js"></script>
+
+
+    <div id="content" style="align-items:center ;">
+    <div class="articles">
+      <% for (let arti of article) { %>
+        <%  if(arti.category==cates) {%>
+      <!-- begin post -->
+      <div class="post">
+        <div class="details">
+          <p class="l"> <span class="category"><a href="/<%= arti.category %>"><%= arti.category %></a></span> - Posted by <%= arti.author %> on<%= arti.date %></p>
+          
+        </div>
+        <div class="thumb"><a href="art/<%= arti.id %>"><img src="<%= arti.imgurl %>" alt="" /></a></div>
+        <h2><a href="art/<%= arti.id %>"><%= arti.title %></a></h2>
+        <textarea id="card-text"><%= arti.pretext %></textarea>
+      </div>
+      <%} %>
+    <%} %>
+      </div>
+    </div>
+
+
+
+<%- include('../includes/footer.ejs')%>

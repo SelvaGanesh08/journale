@@ -1,0 +1,64 @@
+<%- include('../includes/header.ejs') %>
+<%- include('../includes/nav.ejs') %>
+<div id="sub-nav">
+</div>
+
+<div id="content-wrapper">
+  
+  <div id="main">
+      <% k=0 %>
+      <% i=0 %>
+      <% j=0 %>
+      <% o=0 %>
+      <% m=0 %>
+      <% for (let arti of article) { %>
+    <div id="headlines">
+      <div id="main-headline">
+        <% if(o<1) { %>
+        <h2 class="heading">Featured Story</h2>
+        <% o++ } %>
+        <% if(arti.category!='sports') { %>
+        <% if(i<3) { %>
+        <img class="maimg" src="<%= arti.imgurl %>" alt="" />
+        <h1><a href="art/<%= arti.id %>"><%= arti.title %></a></h1>
+        <p class="author"><%= arti.author %> <span><%= arti.date %></span></p>
+        <p><a href="art/<%= arti.id %>">Full story &raquo;</a></p>
+        <% i++ } %>
+        <%} %>
+      </div>
+      <div id="more-headlines">
+        <% if(i>3) { %>
+          <% if(m<1) { %>
+          <h2 class="heading">Featured Stories</h2>
+          <% m++ } %>
+        <% if(arti.category!='sports') { %>
+        <% if(j<5) { %>
+        <h2><a href="art/<%= arti.id %>"><%= arti.title %></a></h2>
+        <p class="author"><%= arti.author %> <span><%= arti.date %></span></p>
+        <p><a href="art/<%= arti.id %>">Full article &raquo;</a></p>
+        <% j++ } %>
+        <%  } %>
+        <%  } %>
+      </div>
+    </div>
+    <%  } %>
+  </div>
+  
+  <div id="sidebars">
+    <h2 class="heading-blue">Sports Headlines</h2>
+    <% for (let artie of article) { %>
+    <% if(artie.category=='sports') { %>
+      <% if(j<5) { %>
+    <img class="spimg" src="<%= artie.imgurl %>" alt="" />
+    <h3><a href="art/<%= artie.id %>"><%= artie.title %></a></h3>
+    <p><a href="art/<%= artie.id %>">More sports headlines &raquo;</a></p>
+    <% k++ } %>
+    <%} %>
+    <%} %>
+    
+  </div>
+  
+</div>
+
+<%- include('../includes/footer.ejs')%>
+

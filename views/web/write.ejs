@@ -1,0 +1,25 @@
+<%- include('../includes/header.ejs') %>
+
+<%- include('../includes/nav.ejs') %>
+    <script type="application/javascript" src= "/tinymce/tinymce.min.js"></script>
+    <script type="application/javascript" src= "/javascript/my-tinymce-config.js"></script>
+  <form id="survey-form" action="/write" method ="post">
+    <label id="name-label">Title<input type="text" name="title" id="title" placeholder="Please enter the title" required /></label><br>
+    <label id="email-label">Author <input type="text" name="author" id="author" placeholder="Please enter the Author" required /></label><br>
+    <label id="number-label">Category<input type="text" name="category" id="category" placeholder="Please enter the Category"/></label><br>
+    <label id="number-label">Date<input type="text" name="date" id="date" placeholder="Please enter the Category"/></label><br>
+    <label>Image url
+    <input type="text" name="imgurl" id="imgurl" placeholder="Please enter the image url"/>
+  </label><br>
+  <label>Type the description of the article
+    <textarea id="pretext" name="pretext" rows="2"></textarea>
+  </label>
+    <label>Type the article here
+      <textarea id="des" name="des"></textarea>
+    </label>
+    <input type="submit" value="Submit" id="submit"/>
+  </form>
+  <br>
+</body>
+</body>
+</html> 
