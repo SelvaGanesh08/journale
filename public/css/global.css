@@ -18,15 +18,13 @@ body {
 
 #header {
   width: auto;
-  height: 110px;
-  margin: 0 auto;
+  height: 50px;
+  align-items: center;
+  
 }
 
-#logo {
-  float: left;
-  width: auto;
-  height: 110px;
-}
+
+
 
 
 
