@@ -15,20 +15,20 @@ module.exports = class journal {
 
   save() {
     return db.execute(
-      'INSERT INTO entry (title, date, imgurl, des,category,author,pretext) VALUES (?, ?, ?, ?,?,?,?)',
+      'INSERT INTO articles (title, date, imgurl, des,category,author,pretext) VALUES (?, ?, ?, ?,?,?,?)',
       [this.title, this.date, this.imgurl, this.des,this.category,this.author,this.pretext]
     );
   }
 
 
   static fetchAll() {
-    return db.execute('SELECT * FROM entry');
+    return db.execute('SELECT * FROM articles');
   }
 
   static findById(id) {
-    return db.execute('SELECT * FROM entry WHERE entry.id = ?', [id]);
+    return db.execute('SELECT * FROM articles WHERE articles.id = ?', [id]);
   }
   static findBycat(cate) {
-    return db.execute('SELECT * FROM entry WHERE entry.category = ?', [cate]);
+    return db.execute('SELECT * FROM articles WHERE articles.category = ?', [cate]);
   }
 };
