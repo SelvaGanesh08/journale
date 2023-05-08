@@ -5,14 +5,13 @@
 <script type="application/javascript" src= "/javascript/my-tinymce-config.js"></script>
 
 
-    <div id="content" style="align-items:center ;">
+    <!-- <div id="content" style="align-items:center ;">
     <div class="articles">
       <% for (let arti of article) { %>
         <%  if(arti.category==cates) {%>
-      <!-- begin post -->
       <div class="post">
         <div class="details">
-          <p class="l"> <span class="category"><a href="/<%= arti.category %>"><%= arti.category %></a></span> - Posted by <%= arti.author %> on<%= arti.date %></p>
+          <p class="l"> <span class="category"><a href="/<%= arti.category %>"><%= arti.category %></a></span> - Posted by <%= arti.author %> on <%= arti.date %></p>
           
         </div>
         <div class="thumb"><a href="art/<%= arti.id %>"><img src="<%= arti.imgurl %>" alt="" /></a></div>
@@ -22,8 +21,42 @@
       <%} %>
     <%} %>
       </div>
-    </div>
+    </div> -->
 
+
+    <% for (let arti of article) { %>
+      <%  if(arti.category==cates) {%>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12">
+          <article class="blog-card">
+            <div class="blog-card__background">
+              <div class="card__background--wrapper">
+                <div class="card__background--main" style="background-image: url('<%= arti.imgurl %>');">
+                  <div class="card__background--layer"></div>
+                </div>
+              </div>
+            </div>
+            <div class="blog-card__head">
+              <span class="date__box">
+                <span class="date__day"> <%= arti.date %></span>
+              </span>
+            </div>
+            <div class="blog-card__info">
+             <a href="art/<%= arti.id %>"><h5><%= arti.title %></h5></a> 
+              <p>
+                <a href="#" class="icon-link mr-3"><i class="fa fa-pencil-square-o"></i> <%= arti.author %></a>
+              </p>
+              <p><textarea id="card-text"><%= arti.pretext %></textarea></p>
+              <a href="art/<%= arti.id %>" class="btn btn--with-icon"><i class="btn-icon fa fa-long-arrow-right"></i>READ MORE</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  
+    <%} %>
+    <%} %>
 
 
 <%- include('../includes/footer.ejs')%>
